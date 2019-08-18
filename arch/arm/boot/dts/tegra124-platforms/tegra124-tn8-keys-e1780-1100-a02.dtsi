@@ -1,0 +1,149 @@
+#include <dt-bindings/gpio/tegra-gpio.h>
+#include <dt-bindings/input/input.h>
+
+/ {
+	gpio-keys {
+		compatible = "gpio-keys";
+
+		volume_up {
+			label = "Volume Up";
+			gpios = <&gpio TEGRA_GPIO(I, 1) GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_VOLUMEUP>;
+		};
+		
+		volume_down {
+			label = "Volume Down";	
+			gpios = <&gpio TEGRA_GPIO(Q, 7) GPIO_ACTIVE_LOW>;	
+			linux,code = <KEY_VOLUMEDOWN>;
+		};
+		
+		power {
+			label = "Power";
+			gpios = <&gpio TEGRA_GPIO(Q, 0) GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_POWER>;
+			gpio-key,wakeup;
+		};
+		
+		home {
+			label = "Home";
+			gpios = <&gpio TEGRA_GPIO(R, 3) GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_HOME>;
+		};
+		
+		back {
+			label = "Back";
+			gpios = <&gpio TEGRA_GPIO(S, 4) GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_BACK>;
+		};
+
+		key_up {
+			label = "Key Up";
+			gpios = <&gpio TEGRA_GPIO(Q, 1) GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_UP>;
+		};
+
+		key_down {
+			label = "Key Down";
+			gpios = <&gpio TEGRA_GPIO(Q, 2) GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_DOWN>;
+		};
+
+		key_left {
+			label = "Key Left";
+			gpios = <&gpio TEGRA_GPIO(Q, 3) GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_LEFT>;
+		};
+		
+		key_right {
+			label = "Key Right";
+			gpios = <&gpio TEGRA_GPIO(Q, 4) GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_RIGHT>;
+		};
+	
+		key_y {
+			label = "Key Y";
+			gpios = <&gpio TEGRA_GPIO(S, 5) GPIO_ACTIVE_LOW>;
+			
+			linux,code = <BTN_Y>;
+		};
+			
+		key_a {
+			label = "Key A";	
+			gpios = <&gpio TEGRA_GPIO(S, 6) GPIO_ACTIVE_LOW>;	
+			
+			linux,code = <BTN_A>;
+		};
+		
+		key_b {
+			label = "Key B";		
+			
+			gpios = <&gpio TEGRA_GPIO(I, 2) GPIO_ACTIVE_LOW>;
+			linux,code = <BTN_B>;
+		};
+		
+		key_x {
+			label = "Key X";		
+			
+			gpios = <&gpio TEGRA_GPIO(S, 7) GPIO_ACTIVE_LOW>;
+			linux,code = <BTN_X>;
+		};
+		
+       key_l1 {
+              label = "Key L1";
+
+              gpios = <&gpio TEGRA_GPIO(R, 6) GPIO_ACTIVE_LOW>;
+                  linux,code = <BTN_TL>;
+          };
+
+       key_l2 {
+               label = "Key L2";
+               gpios = <&gpio TEGRA_GPIO(R, 7) GPIO_ACTIVE_LOW>;
+               linux,code = <BTN_TL2>;
+           };
+
+		
+		key_r1 {
+			label = "Key R1";
+			gpios = <&gpio TEGRA_GPIO(S, 1) GPIO_ACTIVE_LOW>;
+			linux,code = <BTN_TR>;
+		};
+		
+		key_r2 {
+			label = "Key R2";
+			gpios = <&gpio TEGRA_GPIO(S, 2) GPIO_ACTIVE_LOW>;
+			
+			linux,code = <BTN_TR2>;
+		};
+		
+		key_start {
+			label = "Key Start";
+			gpios = <&gpio TEGRA_GPIO(S, 3) GPIO_ACTIVE_LOW>;
+			linux,code = <BTN_START>;
+		};
+		key_select {
+			label = "Key Select";
+			gpios = <&gpio TEGRA_GPIO(K, 0) GPIO_ACTIVE_LOW>;
+			
+			linux,code = <BTN_SELECT>;
+		};
+		
+		key_l3 {
+			label = "Key l3";
+			gpios = <&gpio TEGRA_GPIO(X, 1) GPIO_ACTIVE_LOW>;
+			linux,code = <BTN_THUMBL>;
+		};
+		key_r3 {
+			label = "Key r3";
+			gpios = <&gpio TEGRA_GPIO(C, 7) GPIO_ACTIVE_LOW>;
+			linux,code = <BTN_THUMBR>;
+		};
+				
+	};
+
+	i2c@7000c400 {
+		max11601@64 {
+			compatible = "maxim,max11601";
+			reg = <0x64>;
+		};
+	};
+};
